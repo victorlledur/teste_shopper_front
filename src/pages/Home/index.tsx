@@ -215,7 +215,7 @@ const Home = () => {
                 </LabelButtonDiv>
                 <div>
                     <Buttons onClick={handleValidate}>Validar</Buttons>
-                    <Buttons onClick={handleUpdate} disabled={!canUpdate}>
+                    <Buttons className="validar" onClick={handleUpdate} disabled={!canUpdate}>
                         Atualizar
                     </Buttons>
                 </div>

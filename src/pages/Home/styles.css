@@ -12,3 +12,7 @@ table{
 .conteudo{
     text-align: center;
 }
+
+.validar:disabled{
+background-color: rgb(214, 117, 117);
+}
