@@ -102,7 +102,6 @@ const Home = () => {
             const response = await byIdProduct(productCode);
             const product = response.data;
             const currentPrice = product.sales_price;
-            console.log(`Preço Atual (${productCode}): ${currentPrice}`);
             return currentPrice;
         } catch (error) {
             console.error(`Erro ao obter o preço atual do produto ${productCode}:`, error);
@@ -114,7 +113,6 @@ const Home = () => {
             const response = await byIdProduct(productCode);
             const product = response.data;
             const costPrice = product.cost_price;
-            console.log(`Preço de Custo (${productCode}): ${costPrice}`);
             return costPrice;
         } catch (error) {
             console.error(`Erro ao obter o preço de custo do produto ${productCode}:`, error);
@@ -124,11 +122,7 @@ const Home = () => {
     const isPriceInRange = (newPrice, currentPrice) => {
         const upperLimit = currentPrice * 1.1;
         const lowerLimit = currentPrice * 0.9;
-        console.log("Preço Atual:", currentPrice);
-        console.log("Limite Superior:", upperLimit);
-        console.log("Limite Inferior:", lowerLimit);
         const isInRange = newPrice <= upperLimit && newPrice >= lowerLimit;
-        console.log("Está no intervalo:", isInRange);
         return isInRange;
     };
     const handleValidate = async () => {
@@ -157,7 +151,6 @@ const Home = () => {
                     return;
                 }
                 const validationErrors = await validateCSV(csvData.data);
-                console.log("Erros de validação encontrados:", validationErrors);
                 if (validationErrors.length === 0) {
                     setData(csvData.data);
                     setUploadStatus("Arquivo validado com sucesso.");
@@ -182,12 +175,9 @@ const Home = () => {
                 const req = {
                     sales_price: salesPrice,
                 };
-                console.log('JSON a ser enviado:', req);
-                console.log(`Atualizando produto ${productCode} com preço ${salesPrice}`);
                 await updateProduct(req, productCode);
             }
             setUploadStatus("Dados atualizados com sucesso no banco de dados!");
-            console.log("Upload Status:", uploadStatus);
             setData([]);
             setError("");
             setFile(null);
@@ -195,6 +185,7 @@ const Home = () => {
             setValidationErrors([]);
             setCanUpdate(false);
             setProductInfoList([]);
+            alert("produto Atualizado com Sucesso")
         } catch (error) {
             setUploadStatus("Erro ao atualizar o banco de dados.");
             console.error("Erro ao atualizar o banco de dados:", error);
