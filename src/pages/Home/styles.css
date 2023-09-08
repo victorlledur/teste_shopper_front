@@ -1,0 +1,14 @@
+table, th, td{
+    border: 1px solid #444;
+    border-collapse: collapse;
+    padding: 5px 2px;
+    margin-bottom: 50px;
+}
+table{
+    width: 100%;
+    border-bottom: 50px;
+    background-color: rgb(240,248,255);
+}
+.conteudo{
+    text-align: center;
+}
